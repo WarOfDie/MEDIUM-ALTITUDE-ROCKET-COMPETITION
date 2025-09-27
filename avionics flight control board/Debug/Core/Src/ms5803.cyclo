@@ -1,0 +1,6 @@
+ms5803.c:27:19:MS5803_read	1
+ms5803.c:38:19:MS5803_write	1
+ms5803.c:47:19:MS5803_reset	1
+ms5803.c:63:6:MS5803_Init	2
+ms5803.c:84:10:MS5803_ADC	6
+ms5803.c:113:6:MS5803_get_values	7
