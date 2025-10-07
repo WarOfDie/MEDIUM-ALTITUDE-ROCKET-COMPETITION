@@ -1,6 +1,6 @@
 # MEDIUM-ALTITUDE ROCKET COMPETITION
 
-FPGA/MCU-based avionics, telemetry and ground-station software for a medium-altitude rocket project.
+MCU-based avionics, telemetry and ground-station software for a medium-altitude rocket project.
 
 > **Short description:** This repository contains firmware and software components developed for a medium-altitude rocket competition: flight avionics (flight control board), an ESP32-CAM telemetry/vision node, and the ground station software for telemetry reception, visualization and logging.
 
@@ -25,9 +25,9 @@ The repository is organized into separate modules for on-board avionics, an ESP3
 
 ---
 
-## Hardware (typical / recommended)
+## Hardware 
 
-The project uses typical flight avionics components (adjust as-needed to match your exact BOM):
+The project uses typical flight avionics components :
 
 * **Flight computer:** STM32 (e.g., STM32F446RE) MCU.
 * **IMU:** MPU9250 / similar (accelerometer, gyroscope, magnetometer).
@@ -47,26 +47,21 @@ The project uses typical flight avionics components (adjust as-needed to match y
 
 * Language: C (STM HAL or bare-metal drivers).
 * Responsibilities: Sensor reading (IMU/GPS/Baro), sensor fusion / state estimation, apogee detection, recovery deployment (pyro/servo), telemetry framing and transmission (LoRa / UART).
-* Build system: Makefile / STM32CubeMX or PlatformIO depending on the folder. Inspect the `avionics flight control board` folder for `Makefile`/project files.
+
 
 ### ESP32-CAM
 
 * Language/framework: Arduino / ESP-IDF (depending on files).
-* Responsibilities: Camera capture, optional local SD logging, optional telemetry relay, web-streaming or snapshot upload to ground station.
+* Responsibilities: Camera capture, optional local SD logging.
 
 ### Ground Station Software
 
 * Likely implemented in C# or another desktop stack.
-* Responsibilities: Open telemetry serial port (or UDP), parse frames, visualize telemetry in real-time, save logs (CSV), provide playback.
+* Responsibilities: Open telemetry serial port, parse frames, visualize telemetry in real-time, save logs.
 
 
 
-## Testing & Validation
 
-* Unit-test sensor drivers in bench setups (loopback, known-vectors).
-* Integration tests: bench-level tests with a mounted IMU and controlled movements, GPS simulated or outdoors, pressure chamber or offline correction.
-* Flight tests: tether tests → short hops → full flight (only once bench tests pass).
-* Validate apogee detection with replayed recorded logs.
 
 ---
 
